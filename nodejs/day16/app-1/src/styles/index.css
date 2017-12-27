@@ -1,0 +1,16 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.one{
+  float:right;
+  padding:10px;
+  list-style: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.one:hover{
+  color:blue;
+}

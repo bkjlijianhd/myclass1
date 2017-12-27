@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>信息交流</title>
+    <style media="screen">
+      input{
+        width: 430px;
+        height: 50px;
+        border: 1px solid gray;
+        margin: 0 auto;
+        position: absolute;
+        top:500px;
+        right:69px;
+        text-align: center;
+      }
+      .message{
+        width: 500px;
+        height:500px;
+        border: 1px solid gray;
+        margin: 100px auto;
+        position: relative;
+      }
+      button{
+        width: 71px;
+        height: 54px;
+        position: absolute;
+        top:500px;
+        right:-1px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="message" id="gets"><div>
+    <input type="text" id="input">
+    <button id="btn">发送</button>
+
+
+
+    <script src="https://cdn.bootcss.com/socket.io/2.0.3/socket.io.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    var btn=document.getElementById('btn');
+    var input=document.getElementById('input');
+    var gets=document.getElementById('gets');
+    var socket=io("http://127.0.0.1:8000");
+    var inner=input.value;
+    btn.onclick=function(){
+      socket.emit('client message',inner,function(data){
+        console.log(data);
+      });
+    }
+
+    socket.on('server message',function(mesg){
+      console.log("来自服务器的数据: ",mesg);
+    });
+
+      socket.on('user disconnect',function(mesg){
+        console.log(mesg);
+      });
+
+      socket.on('user connect',function(mesg){
+        console.log(mesg);
+      });
+
+    </script>
+  </body>
+</html>

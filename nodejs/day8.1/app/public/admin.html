@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>学生信息</title>
+  <link href="./public/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">Home</a></li>
+  <li role="presentation"><a href="#">Profile</a></li>
+  <li role="presentation"><a href="#">Messages</a></li>
+  </ul>
+
+
+
+  <script src="./public/js/jquery.min.js"></script>
+  <script src="./public/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+  $("#btn_post").click(function(){
+    $.ajax({
+      url: "/data",
+      method: 'post',
+      data: {
+        name: 'zhangsan',
+        age: 18
+      }
+    }).done(function(data, status, jqXHR){
+      console.log(data);
+    }).fail(function(jqXHR, status, error){
+      console.log(error);
+    });
+  });
+
+
+  </script>
+</body>
+
+</html>
