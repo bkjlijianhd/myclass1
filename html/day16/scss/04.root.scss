@@ -1,0 +1,18 @@
+//@at-root
+//用于跳出嵌套但碰到媒体代码就跳不出了
+.one {
+  height: 100px;
+  line-height: 100px;
+
+  .one_1 {
+    color: yellow;
+
+    @at-root .two {
+      font-size: 100px;//从two中跳出
+
+      .two_1 {
+        height: 200px;
+      }
+    }
+  }
+}

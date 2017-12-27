@@ -1,0 +1,32 @@
+// selector nest
+//选择器嵌套
+.one {
+  color: yellow;
+  height: 200px;
+  line-height: 200px;
+
+  .one_1 {
+    font-size: 50px;
+    color: green;
+    .one_1_1 {
+      background: red;
+    }
+
+    &::before {
+      content:"before ....";
+    }
+  }
+  &::before {
+    content:"before ....";
+  }
+}//&代表父元素并不代表祖先元素
+
+.two {
+  div {
+    color: green;
+  }
+
+  >div {
+    font-size: 100px;
+  }
+}
